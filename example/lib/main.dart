@@ -69,6 +69,22 @@ class _MyAppState extends State<MyApp> {
         ),
         body: ChildWidget(),
       ),
+      onGenerateRoute: (routeSettings) {
+        switch (routeSettings.name) {
+          case 'login':
+            return MaterialPageRoute<Widget>(
+              builder: (context) => Scaffold(),
+            );
+          default:
+            return MaterialPageRoute<Widget>(
+              builder: (context) => Container(
+                color: Colors.red,
+                height: 900,
+                width: 400,
+              ),
+            );
+        }
+      },
     );
   }
 }
@@ -86,6 +102,6 @@ class ChildWidget extends StatelessWidget {
 
   ///Simply just trigger some error.
   void generateError() async {
-    Catcher.sendTestException();
+    Catcher.navigateTo('/main');
   }
 }

@@ -782,4 +782,11 @@ class Catcher with ReportModeAction {
   static Catcher getInstance() {
     return _instance;
   }
+
+  static Future<void> navigateTo(String routeName) async {
+    if (_navigatorKey != null) {
+      _navigatorKey!.currentState!.pushNamed(routeName);
+    }
+    return;
+  }
 }
