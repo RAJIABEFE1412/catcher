@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'dart:io';
 import 'dart:isolate';
 
@@ -785,6 +786,7 @@ class Catcher with ReportModeAction {
 
   static Future<void> navigateTo(String routeName) async {
     if (_navigatorKey != null) {
+      log("on clickexd naviuagetddd .... ");
       _navigatorKey!.currentState!.pushNamed(routeName);
     }
     return;
